@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+:root {
+  --body-color: #111111;
+  --card-title-color: #ffffff;
+  --card-background-color: #212121;
+  --card-shadow-color: #110e0e;
+}
+
+*, html {
+  scroll-behavior: smooth !important;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--body-color);
+}
+
+.wrapper {
+  padding: 2rem;
+}
+
+.card-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card {
+  background-color: var(--card-background-color);
+  border-radius: 6px;
+  box-shadow: 1px 1px 2px 0px var(--card-shadow-color);
+  overflow-x: hidden;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  cursor: pointer;
+  transform: translateY(-5px);
+  transition: transform 0.2s;
+}
+
+.card-image img {
+  border-radius: 6px 6px 0px 0px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.card-title {
+  color: var(--card-title-color);
+  padding: 1rem 1rem;
+  font-family: 'Rubik', sans-serif;
+  font-size: 14px;
+  overflow-x: inherit;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.input-text {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 9px 10px;
+  background-color: var(--card-background-color);
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  color: white;
+  font-family: 'Rubik', sans-serif;
+  box-shadow: 1px 1px 2px 0px var(--card-shadow-color);
+}
+
+[v-cloak] {
+  display: none;
+}
+
+.pages-table {
+  display: flex;
+  justify-content: center;
+  color: #ffffff;
+  gap: 0.5rem;
+  font-family: 'Rubik', sans-serif;
+}
+
+.pages-table div {
+  cursor: pointer;
+}
+
+.pages-table div:hover {
+  text-decoration: underline;
+}
+
+.pactive {
+  text-decoration: underline;
+}
+
+h2 {
+  color: white;
+  font-family: 'Rubik', sans-serif;
+  margin-bottom: 1rem;
+  font-size: 18px;
+}
+
+@media (min-width: 576px) {
+  .card-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .card-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .card-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .card-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1400px) {
+  .card-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

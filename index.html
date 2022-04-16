@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.png" type="image/png" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>SteamDB</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="wrapper" v-if="isLoaded" v-cloak>
+        <h2>SteamDB</h2>
+        <input
+          type="text"
+          placeholder="Search..."
+          class="input-text"
+          @keyup="searchHandler"
+          :disabled="!isLoaded"
+          v-model="searchStr"
+        />
+        <div class="card-list">
+          <div
+            v-for="card in view"
+            :key="card.appid"
+            @click="openApp(card.appid)"
+            class="card"
+          >
+            <div class="card-image">
+              <img
+                :src="getAppImage(card.appid)"
+                @error="setPlaceholder"
+                alt="#"
+              />
+            </div>
+            <div class="card-title" :title="card.name">{{card.name}}</div>
+          </div>
+        </div>
+        <div class="pages-table">
+          <div
+            v-for="p in pagesArrView"
+            @click="setPage(p)"
+            :class="{ pactive: p == page}"
+          >
+            {{p+1}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.5.3"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
